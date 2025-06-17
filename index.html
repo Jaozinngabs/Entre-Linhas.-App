@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livraria Solidária</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<!-- Tela de Login (adicione antes do </body>) -->
+<div class="login-overlay" id="login-overlay">
+    <div class="login-container">
+        <form id="login-form">
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="E-mail" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Senha" required>
+            </div>
+            <button type="submit">Entrar</button>
+            <p class="login-footer">Não tem conta? <a href="#" id="register-link">Cadastre-se</a></p>
+        </form>
+    </div>
+</div>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-book-open"></i>
+            <h1>Entre Linhas</h1>
+        </div>
+        <nav class="bottom-nav">
+    <ul>
+        <li>
+            <a href="#" class="active" id="home-tab">
+                <i class="fas fa-home"></i>
+                <span>Início</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" id="shop-tab">
+                <i class="fas fa-book"></i>
+                <span>Comprar</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" id="donate-tab">
+                <i class="fas fa-hand-holding-heart"></i>
+                <span>Doar</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" id="cart-tab">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Carrinho</span>
+                <span class="cart-badge" id="cart-count">0</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+    <div class="user-menu">
+        <button id="user-btn">
+            <i class="fas fa-user-circle"></i>
+        </button>
+        <div class="user-dropdown" id="user-dropdown">
+            <div class="user-info">
+                <i class="fas fa-user"></i>
+                <h3>Usuário</h3>
+                <p>user@exemplo.com</p>
+            </div>
+            <ul>
+                <li><i class="fas fa-home"></i> Rua Exemplo, 123</li>
+                <li><i class="fas fa-phone"></i> (11) 98765-4321</li>
+                <li><i class="fas fa-history"></i> Histórico</li>
+                <li><i class="fas fa-cog"></i> Configurações</li>
+                <li><i class="fas fa-sign-out-alt"></i> Sair</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Bottom-nav permanece aqui -->
+    </header>
+
+    <main>
+        <!-- Página Inicial -->
+        <section id="home" class="page active">
+            <div class="hero">
+                <h2>Leia mais, doe livros, mude vidas!</h2>
+                <p>Compre livros incríveis ou doe os que você já leu para quem precisa.</p>
+                <div class="buttons">
+                    <button id="shop-btn">Comprar Livros</button>
+                    <button id="donate-btn">Doar Livros</button>
+                </div>
+            </div>
+            
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-book"></i>
+                    <h3>Variedade</h3>
+                    <p>Mais de 1000 títulos disponíveis</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-heart"></i>
+                    <h3>Solidariedade</h3>
+                    <p>Doe livros para bibliotecas comunitárias</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-truck"></i>
+                    <h3>Entrega Rápida</h3>
+                    <p>Receba em até 3 dias úteis</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loja de Livros -->
+        <section id="shop" class="page">
+            <h2>Livros Disponíveis</h2>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Pesquisar livros...">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="books-grid" id="books-container">
+                <!-- Livros serão adicionados via JavaScript -->
+            </div>
+        </section>
+
+        <!-- Doação de Livros -->
+        <section id="donate" class="page">
+            <h2>Doe seus Livros</h2>
+            <div class="donate-form">
+                <div class="form-group">
+                    <label for="book-title">Título do Livro</label>
+                    <input type="text" id="book-title" placeholder="Ex: O Pequeno Príncipe">
+                </div>
+                <div class="form-group">
+                    <label for="book-author">Autor</label>
+                    <input type="text" id="book-author" placeholder="Ex: Antoine de Saint-Exupéry">
+                </div>
+                <div class="form-group">
+                    <label for="book-condition">Estado do Livro</label>
+                    <select id="book-condition">
+                        <option value="new">Novo</option>
+                        <option value="good">Bom</option>
+                        <option value="used">Usado</option>
+                        <option value="worn">Gasto</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="book-photo">Foto do Livro</label>
+                    <input type="file" id="book-photo" accept="image/*">
+                </div>
+                <button id="submit-donation">Enviar Doação</button>
+            </div>
+            <div class="donation-info">
+                <h3>Como funciona a doação?</h3>
+                <p>Após enviar o formulário, entraremos em contato para combinar a coleta do livro. Todos os livros doados serão destinados a bibliotecas comunitárias ou vendidos a preços simbólicos, com a renda revertida para projetos de incentivo à leitura.</p>
+            </div>
+        </section>
+
+        <!-- Carrinho de Compras -->
+        <section id="cart" class="page">
+            <h2>Seu Carrinho</h2>
+            <div class="cart-items" id="cart-items">
+                <!-- Itens do carrinho serão adicionados via JavaScript -->
+                <p class="empty-cart">Seu carrinho está vazio</p>
+            </div>
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="subtotal">R$ 0,00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Frete</span>
+                    <span id="shipping">R$ 0,00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span id="total">R$ 0,00</span>
+                </div>
+                <button id="checkout-btn">Finalizar Compra</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Livraria Solidária. Todos os direitos reservados.</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <!-- Modal de Confirmação -->
+    <div class="modal" id="confirmation-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 id="modal-title">Sucesso!</h3>
+            <p id="modal-message">Sua ação foi concluída com sucesso.</p>
+            <button id="modal-ok">OK</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
