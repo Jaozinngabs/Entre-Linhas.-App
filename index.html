@@ -57,6 +57,12 @@
                 <span class="cart-badge" id="cart-count">0</span>
             </a>
         </li>
+        <li>
+            <a href="#" id="donated-tab">
+                <i class="fas fa-gift"></i>
+                <span>Doações</span>
+            </a>
+        </li> 
     </ul>
 </nav>
     <div class="user-menu">
@@ -157,6 +163,15 @@
                 <p>Após enviar o formulário, entraremos em contato para combinar a coleta do livro. Todos os livros doados serão destinados a bibliotecas comunitárias ou vendidos a preços simbólicos, com a renda revertida para projetos de incentivo à leitura.</p>
             </div>
         </section>
+        <!-- Livros Doados -->
+        <section id="donated-books" class="page">
+            <h2>Livros Doados</h2>
+            <p class="donated-books-info">Estes livros foram doados e estão disponíveis por um preço simbólico:</p>
+            <div class="books-grid" id="donated-container">
+                <!-- Livros doados serão adicionados aqui via JavaScript -->
+            </div>
+        </section>
+
 
         <!-- Carrinho de Compras -->
         <section id="cart" class="page">
@@ -180,7 +195,9 @@
                 </div>
                 <button id="checkout-btn">Finalizar Compra</button>
             </div>
+                       
         </section>
+        
     </main>
 
     <footer>
